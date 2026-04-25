@@ -13,10 +13,10 @@
       font-family: 'Cairo', sans-serif; 
       color: #fff; 
       text-align: center; 
-      /* تعديل المسار لضمان القراءة الصحيحة */
-      background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('./static/background.jpg') no-repeat center center fixed; 
+      /* محاولة استخدام مسار نسبي بسيط للخلفية مع لون احتياطي داكن */
+      background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('static/background.jpg') no-repeat center center fixed; 
       background-size: cover;
-      background-color: #0b1a0e; /* لون احتياطي داكن */
+      background-color: #0b1a0e; 
     }
 
     header { 
@@ -161,7 +161,7 @@
 <body>
 
 <header>
-  <img src="./static/logo.png" alt="AGR Logo" class="logo">
+  <img src="static/logo.png" alt="AGR Logo" class="logo">
   <h1>ZAMALEK 5K RUN</h1>
   <p>سباق حديقة الأسماك بالزمالك</p>
 </header>
@@ -240,7 +240,6 @@ document.getElementById("regForm").addEventListener("submit", function(e){
   formData.append("phone", document.getElementById("phone").value);
   formData.append("package", document.getElementById("package").value);
 
-  // الرابط الخاص بك
   const scriptURL = 'https://script.google.com/macros/s/AKfycbwjpoVcWsoVsct6aJ2I-GMISRkGTLjvxgPNsdDI5aXMl-TTo5Q95fbyv-dFzO3bBzBz_w/exec'; 
 
   fetch(scriptURL, { method: 'POST', body: formData})
