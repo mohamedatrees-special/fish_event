@@ -8,57 +8,160 @@
     @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap');
     
     body { 
-      margin: 0; padding: 0; font-family: 'Cairo', sans-serif; color: #fff; text-align: center; 
-      /* استخدام صورة الخلفية من مجلد static */
-      background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('static/background.jpg') no-repeat center center fixed; 
-      background-size: cover; 
+      margin: 0; 
+      padding: 0; 
+      font-family: 'Cairo', sans-serif; 
+      color: #fff; 
+      text-align: center; 
+      /* تعديل المسار لضمان القراءة الصحيحة */
+      background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('./static/background.jpg') no-repeat center center fixed; 
+      background-size: cover;
+      background-color: #0b1a0e; /* لون احتياطي داكن */
     }
 
-    header { padding: 30px 20px; background: rgba(46, 125, 50, 0.4); border-bottom: 3px solid #ccff00; }
+    header { 
+      padding: 30px 20px; 
+      background: rgba(46, 125, 50, 0.3); 
+      border-bottom: 3px solid #ccff00; 
+    }
     
-    /* تنسيق اللوجو */
-    .logo { width: 120px; margin-bottom: 10px; }
+    .logo { 
+      width: 140px; 
+      height: auto;
+      margin-bottom: 10px; 
+    }
 
-    header h1 { font-size: 3em; margin: 0; color: #ccff00; text-shadow: 0 0 20px rgba(204, 255, 0, 0.5); font-weight: 900; }
+    header h1 { 
+      font-size: 3em; 
+      margin: 0; 
+      color: #ccff00; 
+      text-shadow: 0 0 20px rgba(204, 255, 0, 0.5); 
+      font-weight: 900; 
+    }
     
-    main { padding: 25px; backdrop-filter: blur(15px); background-color: rgba(0, 0, 0, 0.6); margin: 20px auto; border-radius: 30px; max-width: 800px; border: 1px solid rgba(255,255,255,0.1); }
+    main { 
+      padding: 25px; 
+      backdrop-filter: blur(15px); 
+      -webkit-backdrop-filter: blur(15px);
+      background-color: rgba(0, 0, 0, 0.6); 
+      margin: 20px auto; 
+      border-radius: 30px; 
+      max-width: 800px; 
+      border: 1px solid rgba(255,255,255,0.1); 
+    }
     
-    .details-box { text-align: right; margin-bottom: 30px; padding: 20px; background: rgba(255, 255, 255, 0.05); border-right: 6px solid #ccff00; border-radius: 15px; }
-    .agr-note { color: #ffeb3b; font-weight: bold; background: rgba(255, 235, 59, 0.15); padding: 15px; border-radius: 10px; margin-top: 15px; border: 2px dashed #ffeb3b; font-size: 1.1em; }
+    .details-box { 
+      text-align: right; 
+      margin-bottom: 30px; 
+      padding: 20px; 
+      background: rgba(255, 255, 255, 0.05); 
+      border-right: 6px solid #ccff00; 
+      border-radius: 15px; 
+    }
+
+    .agr-note { 
+      color: #ffeb3b; 
+      font-weight: bold; 
+      background: rgba(255, 235, 59, 0.1); 
+      padding: 15px; 
+      border-radius: 10px; 
+      margin-top: 15px; 
+      border: 1px dashed #ffeb3b; 
+      font-size: 1.1em; 
+    }
 
     .form-group { margin-bottom: 15px; }
+    
     input, select { 
-      width: 90%; max-width: 400px; padding: 15px; border-radius: 12px; border: none; font-size: 1.1em; 
-      font-family: 'Cairo', sans-serif; background: #fff; color: #333; outline: none;
+      width: 90%; 
+      max-width: 400px; 
+      padding: 15px; 
+      border-radius: 12px; 
+      border: 2px solid transparent; 
+      font-size: 1.1em; 
+      font-family: 'Cairo', sans-serif; 
+      background: rgba(255, 255, 255, 0.95); 
+      color: #333; 
+      outline: none;
+      transition: 0.3s;
     }
 
-    h2 { color: #fff; margin-top: 30px; font-size: 1.8em; border-bottom: 2px solid #ccff00; display: inline-block; padding-bottom: 5px; }
+    input:focus { border-color: #ccff00; }
 
-    .grid { display: flex; justify-content: center; flex-wrap: wrap; gap: 15px; margin: 25px 0; }
+    h2 { 
+      color: #fff; 
+      margin-top: 30px; 
+      font-size: 1.8em; 
+      border-bottom: 2px solid #ccff00; 
+      display: inline-block; 
+      padding-bottom: 5px; 
+    }
+
+    .grid { 
+      display: flex; 
+      justify-content: center; 
+      flex-wrap: wrap; 
+      gap: 15px; 
+      margin: 25px 0; 
+    }
+
     .card { 
-      cursor: pointer; background: rgba(255,255,255,0.08); border-radius: 20px; padding: 15px; 
-      width: 200px; border: 2px solid transparent; transition: 0.3s ease-in-out; text-align: center;
+      cursor: pointer; 
+      background: rgba(255,255,255,0.08); 
+      border-radius: 20px; 
+      padding: 20px; 
+      width: 190px; 
+      border: 2px solid transparent; 
+      transition: 0.3s ease-in-out; 
+      text-align: center;
     }
-    .card:hover { background: rgba(255,255,255,0.15); transform: translateY(-5px); }
-    .selected { border: 2px solid #ccff00 !important; background: rgba(204, 255, 0, 0.2) !important; }
+
+    .card:hover { 
+      background: rgba(255,255,255,0.15); 
+      transform: translateY(-5px); 
+    }
+
+    .selected { 
+      border: 2px solid #ccff00 !important; 
+      background: rgba(204, 255, 0, 0.2) !important; 
+      box-shadow: 0 0 15px rgba(204, 255, 0, 0.2);
+    }
     
     .name { font-weight: 900; font-size: 1.3em; color: #ccff00; margin-bottom: 5px; }
     .price { font-size: 1.1em; font-weight: bold; color: #fff; margin-bottom: 8px; }
     .desc { font-size: 0.85em; color: #eee; line-height: 1.4; }
 
     button { 
-      background-color: #ccff00; color: #000; font-weight: 900; cursor: pointer; 
-      width: 280px; padding: 15px; border-radius: 50px; border: none; transition: 0.3s; 
-      font-size: 1.4em; margin-top: 20px; box-shadow: 0 10px 20px rgba(204, 255, 0, 0.2);
+      background-color: #ccff00; 
+      color: #000; 
+      font-weight: 900; 
+      cursor: pointer; 
+      width: 280px; 
+      padding: 15px; 
+      border-radius: 50px; 
+      border: none; 
+      transition: 0.3s; 
+      font-size: 1.4em; 
+      margin-top: 20px; 
+      box-shadow: 0 10px 20px rgba(204, 255, 0, 0.2);
     }
-    button:hover { background-color: #e6ff80; transform: scale(1.05); }
-    button:disabled { background-color: #555; color: #888; cursor: not-allowed; }
+
+    button:hover { 
+      background-color: #e6ff80; 
+      transform: scale(1.03); 
+    }
+
+    button:disabled { 
+      background-color: #555; 
+      color: #888; 
+      cursor: not-allowed; 
+    }
   </style>
 </head>
 <body>
 
 <header>
-  <img src="static/logo.png" alt="AGR Logo" class="logo">
+  <img src="./static/logo.png" alt="AGR Logo" class="logo">
   <h1>ZAMALEK 5K RUN</h1>
   <p>سباق حديقة الأسماك بالزمالك</p>
 </header>
@@ -137,7 +240,7 @@ document.getElementById("regForm").addEventListener("submit", function(e){
   formData.append("phone", document.getElementById("phone").value);
   formData.append("package", document.getElementById("package").value);
 
-  // الرابط الخاص بك مدمج هنا
+  // الرابط الخاص بك
   const scriptURL = 'https://script.google.com/macros/s/AKfycbwjpoVcWsoVsct6aJ2I-GMISRkGTLjvxgPNsdDI5aXMl-TTo5Q95fbyv-dFzO3bBzBz_w/exec'; 
 
   fetch(scriptURL, { method: 'POST', body: formData})
@@ -149,7 +252,8 @@ document.getElementById("regForm").addEventListener("submit", function(e){
        btn.disabled = false;
     })
     .catch(error => {
-       alert("عذراً، حدث خطأ. تأكد من اتصالك بالإنترنت.");
+       console.error('Error!', error.message);
+       alert("عذراً، حدث خطأ أثناء الإرسال. تأكد من اتصالك بالإنترنت.");
        btn.disabled = false;
        btn.innerText = "تأكيد التسجيل";
     });
