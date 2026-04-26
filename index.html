@@ -13,8 +13,10 @@
       font-family: 'Cairo', sans-serif; 
       color: #fff; 
       text-align: center; 
-      /* محاولة استخدام مسار نسبي بسيط للخلفية مع لون احتياطي داكن */
-      background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('static/background.jpg') no-repeat center center fixed; 
+
+      /* ✅ تم التعديل هنا */
+      background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('background.png') no-repeat center center fixed; 
+
       background-size: cover;
       background-color: #0b1a0e; 
     }
@@ -161,7 +163,7 @@
 <body>
 
 <header>
-  <img src="static/logo.png" alt="AGR Logo" class="logo">
+  <img src="logo.png" alt="AGR Logo" class="logo"> <!-- ✅ شيلنا static -->
   <h1>ZAMALEK 5K RUN</h1>
   <p>سباق حديقة الأسماك بالزمالك</p>
 </header>
@@ -240,23 +242,27 @@ document.getElementById("regForm").addEventListener("submit", function(e){
   formData.append("phone", document.getElementById("phone").value);
   formData.append("package", document.getElementById("package").value);
 
-  const scriptURL = 'https://script.google.com/macros/s/AKfycbwjpoVcWsoVsct6aJ2I-GMISRkGTLjvxgPNsdDI5aXMl-TTo5Q95fbyv-dFzO3bBzBz_w/exec'; 
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbwem94w8x9PaQzh8BytjioKDArJlQqcoXRx0VqCVxI5js7DU20lDQ7Go_S8nESwyhDoVw/exec';
 
-  fetch(scriptURL, { method: 'POST', body: formData})
-    .then(response => {
-       alert("🎉 تم تسجيلك بنجاح! نراكم في حديقة الأسماك.");
+  fetch(scriptURL, { 
+    method: 'POST', 
+    body: formData,
+    mode: 'no-cors'   /* ✅ أهم تعديل */
+  })
+    .then(() => {
+       alert("🎉 تم التسجيل بنجاح! نراك في حديقة الأسماك");
        document.getElementById("regForm").reset();
        if(selectedPkgNode) selectedPkgNode.classList.remove("selected");
-       btn.innerText = "تأكيد التسجيل";
-       btn.disabled = false;
     })
-    .catch(error => {
-       console.error('Error!', error.message);
-       alert("عذراً، حدث خطأ أثناء الإرسال. تأكد من اتصالك بالإنترنت.");
-       btn.disabled = false;
+    .catch(() => {
+       alert("❌ حدث خطأ أثناء الإرسال");
+    })
+    .finally(() => {
        btn.innerText = "تأكيد التسجيل";
+       btn.disabled = false;
     });
 });
 </script>
+
 </body>
 </html>
