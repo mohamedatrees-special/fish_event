@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ماراثون الزمالك (10.5 كم) | Zamalek Run</title>
+  <title>  ¼ marathon (10.548)| AGRun</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap');
     
@@ -13,7 +13,7 @@
       font-family: 'Cairo', sans-serif; 
       color: #fff; 
       text-align: center; 
-      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('static/background.png') no-repeat center center fixed; 
+      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.25)), url('background.png') no-repeat center center fixed; 
       background-size: cover;
       background-color: #0b1a0e; 
     }
@@ -26,7 +26,7 @@
     }
 
     .logo {
-      width: 120px; /* يمكنك التحكم في حجم اللوجو من هنا */
+      width: 120px;
       height: auto;
       margin-bottom: 15px;
       filter: drop-shadow(0 0 10px rgba(204, 255, 0, 0.5));
@@ -88,7 +88,7 @@
     .form-group { margin-bottom: 18px; }
     
     input, select { 
-      width: 90%; 
+      width: 95%; 
       max-width: 450px; 
       padding: 16px; 
       border-radius: 15px; 
@@ -119,10 +119,11 @@
       cursor: pointer;
       font-weight: 900;
       transition: 0.4s;
-      box-shadow: 0 10px 20px rgba(204,255,0,0.3);
     }
 
-    button:hover {
+    button:disabled { background: #888; cursor: not-allowed; }
+
+    button:hover:not(:disabled) {
       transform: scale(1.05) translateY(-3px);
       box-shadow: 0 15px 30px rgba(204,255,0,0.6);
     }
@@ -138,44 +139,88 @@
 </header>
 
 <main>
-
   <div class="details-box">
     <p>📍 المكان: حي الزمالك</p>
     <p>🏃‍♂️ المسافة: 10.548 كم</p>
-    <p>📅 التاريخ: قريباً</p>
-
+    <p>📅 التاريخ: الجمعة 01/05/2026</p>
     <div class="agr-note">
-      ⚠️ يرجى التأكد من صحة رقم الهاتف المسجل للتواصل.
+      ⚠️ يرجى التأكد من صحة البيانات المسجلة قبل الإرسال.
     </div>
   </div>
 
   <h2>استمارة التسجيل</h2>
 
-  <form action="#" method="POST">
+  <form id="registrationForm">
     <div class="form-group">
-      <input type="text" placeholder="الاسم بالكامل" required>
+      <input type="text" name="name" placeholder="الاسم بالكامل" required>
     </div>
 
     <div class="form-group">
-      <input type="number" placeholder="العمر" max="90" required>
-    </div>
-
-    <div class="form-group">
-      <input type="tel" placeholder="رقم الهاتف (واتساب)" required>
-    </div>
-
-    <div class="form-group">
-      <select required>
-        <option value="" disabled selected>اختر النوع</option>
-        <option value="male">ذكر</option>
-        <option value="female">أنثى</option>
+      <select name="age" required>
+        <option value="" disabled selected>اختر العمر</option>
+        <script>
+          for (let i = 15; i <= 70; i++) {
+            document.write('<option value="' + i + '">' + i + ' سنة</option>');
+          }
+        </script>
       </select>
     </div>
 
-    <button type="submit">سجل الآن 🚀</button>
-  </form>
+    <div class="form-group">
+      <input type="tel" name="phone" placeholder="رقم الهاتف (واتساب)" required>
+    </div>
 
+    <div class="form-group">
+      <select name="gender" required>
+        <option value="" disabled selected>اختر النوع</option>
+        <option value="ذكر">ذكر</option>
+        <option value="أنثى">أنثى</option>
+      </select>
+    </div>
+
+    <button type="submit" id="submitBtn">سجل الآن 🚀</button>
+  </form>
 </main>
+
+<script>
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbwAXxRyGuha012pBv5vsmg6NaAyQGiMQh58566Cyr3-ppctHHJbPgp-NoBOgqXU2TXm/exec';
+  const form = document.getElementById('registrationForm');
+  const btn = document.getElementById('submitBtn');
+
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    btn.disabled = true;
+    btn.innerHTML = "جاري التسجيل... ⏳";
+
+    // تجميع البيانات من الفورم
+    const data = {
+      name: form.name.value,
+      age: form.age.value,
+      phone: form.phone.value,
+      gender: form.gender.value
+    };
+
+    // إرسال البيانات إلى Google Script
+    fetch(scriptURL, { 
+      method: 'POST', 
+      mode: 'no-cors', // لضمان الإرسال من GitHub بدون مشاكل CORS
+      cache: 'no-cache',
+      body: JSON.stringify(data)
+    })
+    .then(() => {
+      alert("تم تسجيلك بنجاح في ماراثون الزمالك! 🚀");
+      form.reset();
+      btn.disabled = false;
+      btn.innerHTML = "سجل الآن 🚀";
+    })
+    .catch(error => {
+      console.error('Error!', error.message);
+      alert("حدث خطأ، حاول مرة أخرى.");
+      btn.disabled = false;
+      btn.innerHTML = "سجل الآن 🚀";
+    });
+  });
+</script>
 
 </body>
 </html>
