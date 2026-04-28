@@ -3,265 +3,168 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Zamalek ¼ marathon Run(10.548) | AGR</title>
+  <title>Zamalek ¼marathon Run (10.548) | AGR</title>
+
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap');
-    
+    @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap');
+
+    * {
+      box-sizing: border-box;
+    }
+
     body { 
       margin: 0; 
-      padding: 0; 
       font-family: 'Cairo', sans-serif; 
       color: #fff; 
-      text-align: center; 
-
-      background: linear-gradient(rgba(0,0,0,0.15), rgba(0,0,0,0.15)), url('background.png') no-repeat center center fixed; 
-
-      background-size: cover;
-      background-color: #0b1a0e; 
+      background: radial-gradient(circle at top, #1a1a1a, #000);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
     }
 
-    header { 
-      padding: 30px 20px; 
-      background: rgba(46, 125, 50, 0.3); 
-      border-bottom: 3px solid #ccff00; 
-    }
-    
-    .logo { 
-      width: 140px; 
-      height: auto;
-      margin-bottom: 10px; 
-    }
-
-    header h1 { 
-      font-size: 3em; 
-      margin: 0; 
-      color: #ccff00; 
-      text-shadow: 0 0 20px rgba(204, 255, 0, 0.5); 
-      font-weight: 900; 
-    }
-    
-    main { 
-      padding: 25px; 
-      backdrop-filter: blur(15px); 
-      -webkit-backdrop-filter: blur(15px);
-      background-color: rgba(0, 0, 0, 0.6); 
-      margin: 20px auto; 
-      border-radius: 30px; 
-      max-width: 800px; 
-      border: 1px solid rgba(255,255,255,0.1); 
-    }
-    
-    .details-box { 
-      text-align: right; 
-      margin-bottom: 30px; 
-      padding: 20px; 
-      background: rgba(255, 255, 255, 0.05); 
-      border-right: 6px solid #ccff00; 
-      border-radius: 15px; 
+    main {
+      width: 95%;
+      max-width: 700px;
+      padding: 30px;
+      border-radius: 30px;
+      background: rgba(255,255,255,0.05);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255,255,255,0.1);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+      animation: fadeIn 1s ease;
     }
 
-    .agr-note { 
-      color: #ffeb3b; 
-      font-weight: bold; 
-      background: rgba(255, 235, 59, 0.1); 
-      padding: 15px; 
-      border-radius: 10px; 
-      margin-top: 15px; 
-      border: 1px dashed #ffeb3b; 
-      font-size: 1.1em; 
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
-    .form-group { margin-bottom: 15px; }
-    
-    input, select { 
-      width: 90%; 
-      max-width: 400px; 
-      padding: 15px; 
-      border-radius: 12px; 
-      border: 2px solid transparent; 
-      font-size: 1.1em; 
-      font-family: 'Cairo', sans-serif; 
-      background: rgba(255, 255, 255, 0.95); 
-      color: #333; 
+    h1 {
+      font-size: 2.2em;
+      margin-bottom: 10px;
+      font-weight: 800;
+    }
+
+    .subtitle {
+      opacity: 0.7;
+      margin-bottom: 25px;
+    }
+
+    .details {
+      background: rgba(255,255,255,0.04);
+      padding: 15px;
+      border-radius: 15px;
+      margin-bottom: 25px;
+      font-size: 0.95em;
+      line-height: 1.8;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 15px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.08);
+      color: #fff;
+      font-size: 1em;
       outline: none;
       transition: 0.3s;
     }
 
-    input:focus { border-color: #ccff00; }
-
-    h2 { 
-      color: #fff; 
-      margin-top: 30px; 
-      font-size: 1.8em; 
-      border-bottom: 2px solid #ccff00; 
-      display: inline-block; 
-      padding-bottom: 5px; 
+    input::placeholder {
+      color: rgba(255,255,255,0.5);
     }
 
-    .grid { 
-      display: flex; 
-      justify-content: center; 
-      flex-wrap: wrap; 
-      gap: 15px; 
-      margin: 25px 0; 
+    input:focus, select:focus {
+      border-color: #ccff00;
+      box-shadow: 0 0 10px rgba(204,255,0,0.4);
     }
 
-    .card { 
-      cursor: pointer; 
-      background: rgba(255,255,255,0.08); 
-      border-radius: 20px; 
-      padding: 20px; 
-      width: 190px; 
-      border: 2px solid transparent; 
-      transition: 0.3s ease-in-out; 
-      text-align: center;
+    select option {
+      color: #000;
     }
 
-    .card:hover { 
-      background: rgba(255,255,255,0.15); 
-      transform: translateY(-5px); 
+    .btn {
+      width: 100%;
+      margin-top: 20px;
+      padding: 15px;
+      border: none;
+      border-radius: 15px;
+      background: linear-gradient(135deg, #ccff00, #9cff00);
+      color: #000;
+      font-size: 1.1em;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
     }
 
-    .selected { 
-      border: 2px solid #ccff00 !important; 
-      background: rgba(204, 255, 0, 0.2) !important; 
-      box-shadow: 0 0 15px rgba(204, 255, 0, 0.2);
-    }
-    
-    .name { font-weight: 900; font-size: 1.3em; color: #ccff00; margin-bottom: 5px; }
-    .price { font-size: 1.1em; font-weight: bold; color: #fff; margin-bottom: 8px; }
-    .desc { font-size: 0.85em; color: #eee; line-height: 1.4; }
-
-    button { 
-      background-color: #ccff00; 
-      color: #000; 
-      font-weight: 900; 
-      cursor: pointer; 
-      width: 280px; 
-      padding: 15px; 
-      border-radius: 50px; 
-      border: none; 
-      transition: 0.3s; 
-      font-size: 1.4em; 
-      margin-top: 20px; 
-      box-shadow: 0 10px 20px rgba(204, 255, 0, 0.2);
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(204,255,0,0.4);
     }
 
-    button:hover { 
-      background-color: #e6ff80; 
-      transform: scale(1.03); 
+    .note {
+      margin-top: 15px;
+      font-size: 0.9em;
+      opacity: 0.6;
     }
 
-    button:disabled { 
-      background-color: #555; 
-      color: #888; 
-      cursor: not-allowed; 
-    }
   </style>
 </head>
+
 <body>
 
-<header>
-<img src="static/logo.png" alt="AGR Logo" class="logo">
-  <h1>ZAMALEK 5K RUN</h1>
-  <p>سباق حديقة الأسماك بالزمالك</p>
-</header>
-
 <main>
-  <div class="details-box">
-    <p>🏃 <strong>المسافة:</strong> 5 كيلو متر</p>
-    <p>📍 <strong>المكان:</strong> حديقة الأسماك - الزمالك</p>
-    <div class="agr-note">
-      🎁 سيتم توزيع هدايا مجانية للفائزين في الأنشطة الجانبية من صناعة AGR!
-    </div>
+
+  <h1>🏃‍♂️ Zamalek 5K Run</h1>
+  <div class="subtitle">Join the run. Feel the energy.</div>
+
+  <div class="details">
+    📍 الزمالك<br>
+    🏃‍♂️ 5 كم<br>
+    📅 قريبًا
   </div>
 
-  <form id="regForm">
-    <div class="form-group"><input type="text" id="name" placeholder="الاسم بالكامل" required></div>
-    <div class="form-group"><input type="date" id="dob" required></div>
+  <form>
+
     <div class="form-group">
-      <select id="gender" required>
-        <option value="">الجنس</option>
-        <option value="ذكر">ذكر</option>
-        <option value="أنثى">أنثى</option>
+      <input type="text" placeholder="الاسم بالكامل" required>
+    </div>
+
+    <div class="form-group">
+      <input type="number" placeholder="السن" required>
+    </div>
+
+    <div class="form-group">
+      <input type="tel" placeholder="رقم الهاتف" required>
+    </div>
+
+    <div class="form-group">
+      <input type="email" placeholder="البريد الإلكتروني" required>
+    </div>
+
+    <div class="form-group">
+      <select required>
+        <option value="">النوع</option>
+        <option>ذكر</option>
+        <option>أنثى</option>
       </select>
     </div>
-    <div class="form-group"><input type="tel" id="phone" placeholder="رقم الموبايل (واتساب)" required></div>
 
-    <h2>اختر باقة الاشتراك</h2>
-    <div class="grid">
-      <div class="card" onclick="selectItem('package', 'Free', this)">
-        <div class="name">FREE</div>
-        <div class="price">مجاناً</div>
-        <div class="desc">المشاركة في السباق + شهادة مشاركة مطبوعة</div>
-      </div>
-      <div class="card" onclick="selectItem('package', 'Standard', this)">
-        <div class="name">STANDARD</div>
-        <div class="price">100 EGP</div>
-        <div class="desc">ميدالية السباق + شهادة مشاركة مطبوعة</div>
-      </div>
-      <div class="card" onclick="selectItem('package', 'Premium', this)">
-        <div class="name">PREMIUM</div>
-        <div class="price">300 EGP</div>
-        <div class="desc">تيشرت + ميدالية + شهادة مطبوعة</div>
-      </div>
-    </div>
+    <button class="btn">سجل الآن 🚀</button>
 
-    <input type="hidden" id="package" value="">
-    <button type="submit" id="submitBtn">تأكيد التسجيل</button>
   </form>
+
+  <div class="note">
+    AGR Running Community
+  </div>
+
 </main>
-
-<script>
-let selectedPkgNode = null;
-
-function selectItem(type, value, element) {
-    document.getElementById(type).value = value;
-    if (selectedPkgNode) selectedPkgNode.classList.remove("selected");
-    element.classList.add("selected");
-    selectedPkgNode = element;
-}
-
-document.getElementById("regForm").addEventListener("submit", function(e){
-  e.preventDefault();
-  const btn = document.getElementById("submitBtn");
-  
-  if(!document.getElementById("package").value) {
-      alert("من فضلك اختر باقة الاشتراك أولاً");
-      return;
-  }
-
-  btn.innerText = "جاري الحفظ...";
-  btn.disabled = true;
-
-  const formData = new FormData();
-  formData.append("name", document.getElementById("name").value);
-  formData.append("dob", document.getElementById("dob").value);
-  formData.append("gender", document.getElementById("gender").value);
-  formData.append("phone", document.getElementById("phone").value);
-  formData.append("package", document.getElementById("package").value);
-
-  const scriptURL = 'https://script.google.com/macros/s/AKfycbwem94w8x9PaQzh8BytjioKDArJlQqcoXRx0VqCVxI5js7DU20lDQ7Go_S8nESwyhDoVw/exec';
-
-  fetch(scriptURL, { 
-    method: 'POST', 
-    body: formData,
-    mode: 'no-cors'   /* ✅ أهم تعديل */
-  })
-    .then(() => {
-       alert("🎉 تم التسجيل بنجاح! نراك في حديقة الأسماك");
-       document.getElementById("regForm").reset();
-       if(selectedPkgNode) selectedPkgNode.classList.remove("selected");
-    })
-    .catch(() => {
-       alert("❌ حدث خطأ أثناء الإرسال");
-    })
-    .finally(() => {
-       btn.innerText = "تأكيد التسجيل";
-       btn.disabled = false;
-    });
-});
-</script>
 
 </body>
 </html>
