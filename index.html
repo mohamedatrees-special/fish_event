@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Zamalek ¼_marathon Run (10.548km) | AGR</title>
+  <title>ماراثون الزمالك (10.5 كم) | Zamalek Run</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap');
     
@@ -13,109 +13,118 @@
       font-family: 'Cairo', sans-serif; 
       color: #fff; 
       text-align: center; 
-
-      background: linear-gradient(rgba(0,0,0,0.15), rgba(0,0,0,0.15)), url('background.png') no-repeat center center fixed; 
+      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('static/background.png') no-repeat center center fixed; 
       background-size: cover;
       background-color: #0b1a0e; 
     }
 
     header { 
       padding: 30px 20px; 
-      background: rgba(46, 125, 50, 0.3); 
+      background: rgba(46, 125, 50, 0.2); 
       border-bottom: 3px solid #ccff00; 
+      backdrop-filter: blur(8px);
     }
-    
-    .logo { 
-      width: 140px; 
+
+    .logo {
+      width: 120px; /* يمكنك التحكم في حجم اللوجو من هنا */
       height: auto;
-      margin-bottom: 10px; 
+      margin-bottom: 15px;
+      filter: drop-shadow(0 0 10px rgba(204, 255, 0, 0.5));
     }
 
     header h1 { 
-      font-size: 3em; 
+      font-size: clamp(1.8em, 6vw, 3em); 
       margin: 0; 
       color: #ccff00; 
-      text-shadow: 0 0 20px rgba(204, 255, 0, 0.5); 
+      text-shadow: 0 0 20px rgba(204, 255, 0, 0.6); 
       font-weight: 900; 
     }
     
     main { 
-      padding: 25px; 
+      padding: 30px; 
       backdrop-filter: blur(15px); 
       -webkit-backdrop-filter: blur(15px);
-      background-color: rgba(0, 0, 0, 0.6); 
-      margin: 20px auto; 
+      background-color: rgba(0, 0, 0, 0.75); 
+      margin: 30px auto; 
       border-radius: 30px; 
-      max-width: 800px; 
+      max-width: 650px; 
       border: 1px solid rgba(255,255,255,0.1); 
+      box-shadow: 0 20px 50px rgba(0,0,0,0.5);
     }
     
     .details-box { 
       text-align: right; 
-      margin-bottom: 30px; 
+      margin-bottom: 35px; 
       padding: 20px; 
-      background: rgba(255, 255, 255, 0.05); 
+      background: rgba(204, 255, 0, 0.05); 
       border-right: 6px solid #ccff00; 
       border-radius: 15px; 
+    }
+
+    .details-box p {
+      margin: 8px 0;
+      font-size: 1.1em;
+      font-weight: 700;
     }
 
     .agr-note { 
       color: #ffeb3b; 
       font-weight: bold; 
       background: rgba(255, 235, 59, 0.1); 
-      padding: 15px; 
+      padding: 12px; 
       border-radius: 10px; 
       margin-top: 15px; 
       border: 1px dashed #ffeb3b; 
-      font-size: 1.1em; 
+      font-size: 0.95em; 
     }
 
-    .form-group { margin-bottom: 15px; }
+    h2 { 
+      color: #ccff00; 
+      margin-bottom: 25px;
+      font-size: 1.8em; 
+      font-weight: 900;
+    }
+
+    .form-group { margin-bottom: 18px; }
     
     input, select { 
       width: 90%; 
-      max-width: 400px; 
-      padding: 15px; 
-      border-radius: 12px; 
-      border: 2px solid transparent; 
-      font-size: 1.1em; 
+      max-width: 450px; 
+      padding: 16px; 
+      border-radius: 15px; 
+      border: 2px solid rgba(255,255,255,0.1); 
+      font-size: 1.05em; 
       font-family: 'Cairo', sans-serif; 
       background: rgba(255, 255, 255, 0.95); 
-      color: #333; 
+      color: #1a1a1a; 
       outline: none;
-      transition: 0.3s;
+      transition: all 0.3s ease;
     }
 
-    input:focus { border-color: #ccff00; }
-
-    h2 { 
-      color: #fff; 
-      margin-top: 30px; 
-      font-size: 1.8em; 
-      border-bottom: 2px solid #ccff00; 
-      display: inline-block; 
-      padding-bottom: 5px; 
+    input:focus, select:focus { 
+      border-color: #ccff00; 
+      background: #fff;
+      box-shadow: 0 0 15px rgba(204, 255, 0, 0.4);
+      transform: translateY(-2px);
     }
-
-    /* تم حذف grid و card هنا */
 
     button { 
-      margin-top: 20px;
-      padding: 15px 40px;
+      margin-top: 15px;
+      padding: 16px 50px;
       font-size: 1.2em;
       border: none;
-      border-radius: 30px;
+      border-radius: 50px;
       background: #ccff00;
       color: #000;
       cursor: pointer;
-      font-weight: bold;
-      transition: 0.3s;
-      box-shadow: 0 0 20px rgba(204,255,0,0.4);
+      font-weight: 900;
+      transition: 0.4s;
+      box-shadow: 0 10px 20px rgba(204,255,0,0.3);
     }
 
     button:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 30px rgba(204,255,0,0.8);
+      transform: scale(1.05) translateY(-3px);
+      box-shadow: 0 15px 30px rgba(204,255,0,0.6);
     }
 
   </style>
@@ -124,47 +133,42 @@
 <body>
 
 <header>
-  <h1>Zamalek 5K Run</h1>
+  <img src="static/logo.png" alt="AGR Logo" class="logo">
+  <h1>Zamalek ¼ Marathon</h1>
 </header>
 
 <main>
 
   <div class="details-box">
-    <p>📍 المكان: الزمالك</p>
-    <p>🏃‍♂️ المسافة: 5 كم</p>
-    <p>📅 التاريخ: قريبًا</p>
+    <p>📍 المكان: حي الزمالك</p>
+    <p>🏃‍♂️ المسافة: 10.548 كم</p>
+    <p>📅 التاريخ: قريباً</p>
 
     <div class="agr-note">
-      ⚠️ يرجى التأكد من صحة البيانات قبل التسجيل
+      ⚠️ يرجى التأكد من صحة رقم الهاتف المسجل للتواصل.
     </div>
   </div>
 
-  <h2>التسجيل</h2>
+  <h2>استمارة التسجيل</h2>
 
-  <!-- الباقات اتحذفت من هنا -->
-
-  <form>
+  <form action="#" method="POST">
     <div class="form-group">
       <input type="text" placeholder="الاسم بالكامل" required>
     </div>
 
     <div class="form-group">
-      <input type="number" placeholder="السن" required>
+      <input type="number" placeholder="العمر" max="90" required>
     </div>
 
     <div class="form-group">
-      <input type="tel" placeholder="رقم الهاتف" required>
-    </div>
-
-    <div class="form-group">
-      <input type="email" placeholder="البريد الإلكتروني" required>
+      <input type="tel" placeholder="رقم الهاتف (واتساب)" required>
     </div>
 
     <div class="form-group">
       <select required>
-        <option value="">اختر النوع</option>
-        <option>ذكر</option>
-        <option>أنثى</option>
+        <option value="" disabled selected>اختر النوع</option>
+        <option value="male">ذكر</option>
+        <option value="female">أنثى</option>
       </select>
     </div>
 
